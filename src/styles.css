@@ -1,0 +1,114 @@
+body {
+    margin: 0px;
+    padding: 0px;
+  }
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px #d6dcce;
+  }
+  .header {
+    padding-left: 10px;
+    color: white;
+    background-color: #bf7fff;
+  
+    font-size: 30px;
+    box-shadow: 2px 2px 5px #dadadb;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .header-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+  
+  .game-section {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .dice-positons-bet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .dice-position-bet-label {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* align-self: center; */
+  }
+  .dice-bet-div {
+    display: flex;
+    flex-direction: column;
+  }
+  .dice-bet-div .bet-amount {
+    align-self: center;
+  }
+  .bet-amount input {
+    width: 50px;
+  }
+  .timer-set-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 60px;
+  }
+  .timer-set-section-button {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    min-width: 200px;
+    background-color: #78b427;
+  
+    box-shadow: 2px 2px 3px #d6dcce;
+  }
+  .timer-set-section-button:hover {
+    width: 220px;
+    background-color: rgb(139, 208, 46);
+    /* text-shadow: 2px 2px 3px black; */
+    box-shadow: 5px 5px 5px #d6dcce;
+    font-size: 20px;
+  }
+  .to-win-roll-div-title {
+    margin: 10px 0px;
+  }
+  .to-win-roll-div-result {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #fb7c31;
+  }
+  .to-win-roll-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    margin-top: 20px;
+  }
+  
+  .to-win-roll-div-dice {
+    align-self: center;
+  }
+  .re-start {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px #d6dcce;
+  }
+  /* https://html-color.codes/ */
+  

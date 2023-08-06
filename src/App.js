@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+// import SimpleGame from "./components/SimpleGame";
 
-function App() {
+import { lazy, Suspense, useState } from "react";
+
+import Settings from "./icons/Settings";
+import Rules from "./icons/Rules";
+import Loading from "./icons/Loading";
+import ActualGame from "./components/ActualGame";
+import RestartGame from "./components/RestartGame";
+import IconAsButton from "./common/IconsAsButton";
+import { getModelContent, getModelTitle } from "./helpers";
+
+const ModalPopUp = lazy(() => import("./common/Modal"));
+
+export default function App() {
+  const [modelOpenEnum, setModelOpenEnum] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="header">
+        <div className="header-title">{`Play a DICE`}</div>
+        <div className="header-icons">
+          <IconAsButton
+            handler={() => {
+              setModelOpenEnum("RULES");
+            }}
+          >
+            <Rules />
+          </IconAsButton>
+          <IconAsButton
+            handler={() => {
+              setModelOpenEnum("SETTINGS");
+            }}
+          >
+            <Settings />
+          </IconAsButton>
+
+          <RestartGame />
+        </div>
+      </div>
+      {/* <SimpleGame /> */}
+      {/* Without timer and modified way of input */}
+
+      <ActualGame />
+      {/* Code according to requirement */}
+
+      <div>
+        <Suspense fallback={<Loading />}>
+          <ModalPopUp
+            modalIsOpen={modelOpenEnum}
+            closeModal={() => {
+              setModelOpenEnum(null);
+            }}
+            title={getModelTitle(modelOpenEnum)}
+            content={getModelContent(modelOpenEnum)}
+          />
+        </Suspense>
+      </div>
     </div>
   );
 }
-
-export default App;
+// https://github.com/avaneeshtripathi/react-dice-roll
+// https://codesandbox.io/s/dazzling-curie-s4tj7

@@ -1,38 +1,51 @@
-.App {
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.game-title {
+  font-size: 30px;
+  box-shadow: 2px 2px 5px #dadadb;
   text-align: center;
+  margin-bottom: 20px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.game-section {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dice-positons-bet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dice-position-bet-label {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  /* align-self: center; */
+}
+.dice-bet-div {
+  display: flex;
+  flex-direction: column;
+}
+.dice-bet-div .bet-amount {
+  align-self: center;
+}
+.bet-amount input {
+  width: 50px;
+}
+.to-roll-div-label {
+  margin-bottom: 20px;
+}
+.to-roll-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-self: center;
+  margin-top: 40px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.to-roll-div-dice {
+  align-self: center;
 }
