@@ -43,6 +43,7 @@ export default function App() {
 
   // ref for winner determination dice
   const winnerDiceRef = useRef(null);
+  const winnerAmountRef = useRef(null);
 
   // functions
   const funcToCallEverySec = () => {
@@ -72,6 +73,11 @@ export default function App() {
   }, [isTimerOn]);
   useEffect(() => {
     if (displayWinnerBanner) {
+      setTimeout(() => {
+        displayWinnerBanner &&
+          displayWinnerBanner.current &&
+          displayWinnerBanner.current.scrollIntoView({ behavior: "smooth" });
+      }, 100);
       setTimeout(() => {
         setDisplayWinnerBanner(false);
       }, 5000);
@@ -208,6 +214,7 @@ export default function App() {
               flexDirection: "column",
               alignItems: "center"
             }}
+            ref={winnerAmountRef}
           >
             <div style={{ textAlign: "center" }}>
               You won ${`${balance - 100}`}
