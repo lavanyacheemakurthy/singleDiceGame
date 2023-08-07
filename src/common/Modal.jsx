@@ -8,6 +8,9 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    width: "55%",
+    height: "60%",
+    overflow: "hiden",
     /*
      * Created with https://www.css-gradient.com
      * Gradient link: https://www.css-gradient.com/?c1=0174b6&c2=52c4ec&gt=l&gd=dtl
@@ -49,11 +52,14 @@ export default function App({
           justifyContent: "space-between"
         }}
       >
-        <h2>{title}</h2>
+        <div style={{ fontSize: "20px", fontWeight: "400" }}>{title}</div>
       </div>
-      <div>{content}</div>
-      <button onClick={closeModal}>close</button>
-      <div>{}</div>
+      <div style={{ height: "85%", overflowY: "auto" }}>{content}</div>
+      <div
+        style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}
+      >
+        <button onClick={closeModal}>close</button>
+      </div>
     </Modal>
   );
 }

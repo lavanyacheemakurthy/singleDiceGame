@@ -77,7 +77,15 @@ export default function App() {
       }, 5000);
     }
   }, [displayWinnerBanner]);
-
+  useEffect(() => {
+    setTimeout(() => {
+      if (!winnerSelectionDiceDisable) {
+        winnerDiceRef &&
+          winnerDiceRef.current &&
+          winnerDiceRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 500);
+  }, [winnerSelectionDiceDisable]);
   // JSX
   return (
     <div className="container">
@@ -94,14 +102,24 @@ export default function App() {
             <span
               style={
                 timerValueInDisplay > 3
-                  ? { color: "rgb(89,128,59)" }
+                  ? {
+                      // color: "rgb(89,128,59)",
+                      backgroundColor: "green",
+                      color: "white",
+                      borderRadius: "20px",
+                      padding: "0 10px"
+                    }
                   : {
-                      color: "red",
-                      fontSize: "20px"
+                      // color: "red",
+                      backgroundColor: "red",
+                      color: "white",
+                      fontSize: "20px",
+                      borderRadius: "20px",
+                      padding: "0 10px"
                     }
               }
             >
-              {timerValueInDisplay} sec{" "}
+              {timerValueInDisplay - 1} sec{" "}
             </span>{" "}
             to click dice !
           </div>
@@ -161,18 +179,17 @@ export default function App() {
             <div className="to-win-roll-div-title">
               Roll below dice to find winner!
             </div>
-            <div className="to-win-roll-div-dice">
+            <div className="to-win-roll-div-dice" ref={winnerDiceRef}>
               <Dice
-                winnerDiceRef={winnerDiceRef}
                 disabled={winnerSelectionDiceDisable}
                 onRoll={(value) => {
                   setRollCount(rollCount + 1);
                   setRolledDiceValue(value);
-                  setTimeout(()=>{
+                  setTimeout(() => {
                     // allow not to click for winner multiple times
                     // mocked to hide after 3 sec
-                    setWinnerSelectionDiceDisable(true)
-                  },3000);
+                    setWinnerSelectionDiceDisable(true);
+                  }, 3000);
                 }}
                 defaultValue={rolledDiceValue}
                 size={150}
